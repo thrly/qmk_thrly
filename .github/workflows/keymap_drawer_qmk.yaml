@@ -1,0 +1,128 @@
+# .github/workflows/keymap-drawer.yml
+name: Build keymap diagram
+
+on:
+    push:
+        paths:
+            - "keyboards/planck/rev6_drop/keymaps/thrly_plnck/**"
+            - ".github/workflows/keymap-drawer.yml"
+            - "img/keymap_drawer.config.yaml"
+    workflow_dispatch: {}
+
+permissions:
+    contents: write # needed to commit images back
+
+jobs:
+    draw:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.13"
+
+            - name: Cache pip
+              uses: actions/cache@v4
+              with:
+                  path: ~/.cache/pip
+                  key: pip-${{ runner.os }}-${{ hashFiles('**/requirements-keymap.txt') }}
+                  restore-keys: |
+                      pip-${{ runner.os }}-
+
+            - name: Create requirements file
+              run: |
+                  cat > requirements-keymap.txt << 'EOF'
+                  qmk
+                  keymap-drawer
+                  EOF
+
+            - name: Install deps (QMK CLI + keymap-drawer)
+              run: |
+                  python -m pip install --upgrade pip
+                  python -m pip install qmk keymap-drawer
+                  python3 -m pip install --user pipx
+                  python3 -m pipx ensurepath
+                  pipx install keymap-drawer
+                  echo "$HOME/.local/bin" >> $GITHUB_PATH
+                  keymap --version || python -m keymap --version
+
+            - name: Cache QMK firmware checkout
+              uses: actions/cache@v4
+              with:
+                  path: qmk_firmware
+                  key: qmk-fw-${{ runner.os }}-planck-rev6_drop-${{ hashFiles('keyboards/planck/rev6_drop/keymaps/thrly_plnck/keymap.c') }}
+                  restore-keys: |
+                      qmk-fw-${{ runner.os }}-planck-rev6_drop-
+
+            - name: Prepare QMK firmware tree
+              shell: bash
+              run: |
+                  set -euo pipefail
+
+                  # If cache didn't restore, clone a shallow QMK tree
+                  if [ ! -d qmk_firmware ]; then
+                    git clone --depth 1 https://github.com/qmk/qmk_firmware.git
+                  fi
+
+                  export QMK_HOME="$PWD/qmk_firmware"
+                  qmk config user.qmk_home="$QMK_HOME"
+
+                  # Pull only the Planck keyboard data shallowly
+                  git -C qmk_firmware submodule update --init --depth 1 --recursive keyboards/planck
+
+                  # Stage your keymap inside the QMK tree
+                  KB="planck/rev6_drop"
+                  KM="thrly_plnck"
+                  DEST="qmk_firmware/keyboards/${KB}/keymaps/${KM}"
+                  mkdir -p "$DEST"
+
+                  SRC_DIR="keyboards/planck/rev6_drop/keymaps/thrly_plnck"
+                  cp -v "$SRC_DIR/keymap.c" "$DEST/keymap.c"    # required
+                  [ -f "$SRC_DIR/rules.mk" ] && cp -v "$SRC_DIR/rules.mk" "$DEST/"
+                  [ -f "$SRC_DIR/config.h" ] && cp -v "$SRC_DIR/config.h" "$DEST/"
+
+                  echo "QMK tree ready at $QMK_HOME for $KB:$KM"
+
+            - name: Convert keymap.c -> keymap.json
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  export QMK_HOME="$PWD/qmk_firmware"
+                  qmk config user.qmk_home="$QMK_HOME"
+
+                  KB="planck/rev6_drop"
+                  KM="thrly_plnck"
+                  mkdir -p img
+                  qmk c2json -kb "$KB" -km "$KM" | keymap parse -c 12 -q - >img/planck_thrly.yaml
+                  echo "Generated img/planck_thrly.yaml"
+
+            - name: Draw SVG (and optional PNG)
+              shell: bash
+              # draw step
+              run: |
+                  # CFG_ARG=""
+                  # [ -f "img/keymap_drawer.config.yaml" ] && CFG_ARG="--config img/keymap_drawer.config.yaml"
+                  # keymap draw ${CFG_ARG} img/planck_thrly.yaml > img/planck_thrly.svg \
+                  # || python -m keymap draw ${CFG_ARG} img/planck_thrly.yaml > img/planck_thrly.svg
+                    keymap -c img/keymap_drawer.config.yaml draw img/planck_thrly.yaml > img/planck_thrly.svg
+            - name: Commit diagram back to repo
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "22343302+thrly@users.noreply.github.com"
+                  git add img/planck_thrly.svg img/planck_thrly.yaml || true
+                  if git diff --cached --quiet; then
+                    echo "No diagram changes to commit."
+                  else
+                    git commit -m "chore(keymap): auto-regenerate diagram for planck/rev6_drop:thrly_plnck"
+                    git push
+                  fi
+
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: keymap-diagram
+                  path: img/

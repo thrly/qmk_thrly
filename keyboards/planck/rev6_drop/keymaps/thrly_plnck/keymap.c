@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
-    [_NAVIGATION] = LAYOUT__C(
+    [_NAVIGATION] = LAYOUT_planck_1x2uC(
         MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, MS_BTN1,                                   KC_MPRV, KC_MNXT,  MS_BTN1, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT,
         LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), MS_BTN2,  KC_VOLD, KC_VOLU,  MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
         KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_WBAK,                                  KC_MUTE, KC_MPLY,  KC_WFWD, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
