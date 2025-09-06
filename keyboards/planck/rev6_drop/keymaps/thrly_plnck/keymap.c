@@ -71,10 +71,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
     [_BASE] = LAYOUT_planck_1x2uC(
-        KC_Q,    KC_W,    KC_E,    KC_R,        KC_T,                  KC_TAB,       CW_TOGG,   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-        HOME_A,  HOME_S,  HOME_D,  HOME_F,      KC_G,                  QK_GESC,      KC_CAPS,  KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,
-        KC_Z,    KC_X,    KC_C,    KC_V,        KC_B,                  SC_LSPO,      SC_RSPC,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT,  LT(_NAVIGATION,KC_SPC),      LT(_NUMBER,KC_ENT),     LT(_SYMBOL,KC_BSPC),KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL
+        KC_Q,    KC_W,    KC_E,    KC_R,        KC_T,                  KC_CAPS,  CW_TOGG,     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+        HOME_A,  HOME_S,  HOME_D,  HOME_F,      KC_G,                  KC_VOLD,  KC_VOLU,     KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,
+        KC_Z,    KC_X,    KC_C,    KC_V,        KC_B,                  KC_F20,   KC_F21,      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+        KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT,  LT(_NAVIGATION,KC_SPC),   LT(_NUMBER,KC_ENT),    LT(_SYMBOL,KC_BSPC),KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL
     ),
 
 /* NAVIGATION
@@ -88,14 +88,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
-    [_NAVIGATION] = LAYOUT_planck_1x2uC(
-        MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, MS_BTN1, KC_MPRV, KC_MNXT, MS_BTN1, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT,
-        KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, MS_BTN2, KC_VOLD, KC_VOLU, MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
-        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_WBAK, KC_MUTE, KC_MPLY, KC_WFWD, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    [_NAVIGATION] = LAYOUT__C(
+        MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, MS_BTN1,                                   KC_MPRV, KC_MNXT,  MS_BTN1, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT,
+        LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), MS_BTN2,  KC_VOLD, KC_VOLU,  MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
+        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_WBAK,                                  KC_MUTE, KC_MPLY,  KC_WFWD, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                 KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
-/* SYMBOL
+/* sYMBOL
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS
     ),
 
-/* NUMBER
+/* nUMBER
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -131,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F11,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
-/* ADJUST (Nav + Symb)
+/* aDJUST (Nav + Symb)
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
