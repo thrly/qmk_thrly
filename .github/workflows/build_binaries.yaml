@@ -5,7 +5,7 @@ on:
         branches: [main] # keep whatever you use
         paths-ignore:
             - "img/**" # images/json from drawer
-            - ".github/workflows/keymap-drawer.yml"
+            - ".github/workflows/keymap_drawer_qmk.yaml"
     workflow_dispatch: {}
 
 permissions:

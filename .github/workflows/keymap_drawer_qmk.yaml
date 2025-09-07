@@ -10,7 +10,7 @@ on:
     workflow_dispatch: {}
 
 permissions:
-    contents: write # needed to commit images back
+    contents: write
 
 jobs:
     draw:
@@ -43,7 +43,7 @@ jobs:
             - name: Install deps (QMK CLI + keymap-drawer)
               run: |
                   python -m pip install --upgrade pip
-                  python -m pip install qmk keymap-drawer
+                  python -m pip install qmk
                   python3 -m pip install --user pipx
                   python3 -m pipx ensurepath
                   pipx install keymap-drawer
@@ -96,28 +96,25 @@ jobs:
 
                   KB="planck/rev6_drop"
                   KM="thrly_plnck"
-                  mkdir -p img
-                  qmk c2json -kb "$KB" -km "$KM" | keymap parse -c 12 -q - >img/planck_thrly.yaml
-                  echo "Generated img/planck_thrly.yaml"
 
-            - name: Draw SVG (and optional PNG)
+                  mkdir -p img
+                  qmk c2json -kb "$KB" -km "$KM" | keymap parse -c 12 -q - >"img/$KM.yaml"
+                  echo "Generated img/$KM.yaml"
+
+            - name: Draw SVG
               shell: bash
-              # draw step
               run: |
-                  # CFG_ARG=""
-                  # [ -f "img/keymap_drawer.config.yaml" ] && CFG_ARG="--config img/keymap_drawer.config.yaml"
-                  # keymap draw ${CFG_ARG} img/planck_thrly.yaml > img/planck_thrly.svg \
-                  # || python -m keymap draw ${CFG_ARG} img/planck_thrly.yaml > img/planck_thrly.svg
-                    keymap -c img/keymap_drawer.config.yaml draw img/planck_thrly.yaml > img/planck_thrly.svg
+                  KM="thrly_plnck"
+                  keymap -c img/keymap_drawer.config.yaml draw "img/$KM.yaml" >"img/$KM.svg"
             - name: Commit diagram back to repo
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "22343302+thrly@users.noreply.github.com"
-                  git add img/planck_thrly.svg img/planck_thrly.yaml || true
+                  git add "img/$KM.yaml" "img/$KM.svg" || true
                   if git diff --cached --quiet; then
                     echo "No diagram changes to commit."
                   else
-                    git commit -m "chore(keymap): auto-regenerate diagram for planck/rev6_drop:thrly_plnck"
+                    git commit -m "(chore) auto-regenerate keymap diagram"
                     git push
                   fi
 
