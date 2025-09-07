@@ -1,4 +1,10 @@
-# QMK Userspace
+# thrly's planck keymap
+
+[![Build QMK firmware](https://github.com/thrly/qmk_thrly/actions/workflows/build_binaries.yaml/badge.svg)](https://github.com/thrly/qmk_thrly/actions/workflows/build_binaries.yaml)[![Build keymap diagram](https://github.com/thrly/qmk_thrly/actions/workflows/keymap_drawer_qmk.yaml/badge.svg)](https://github.com/thrly/qmk_thrly/actions/workflows/keymap_drawer_qmk.yaml)
+
+![keymap-image](./img/planck_thrly.svg)
+
+## QMK userspace
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
 
@@ -66,9 +72,3 @@ This can also be used to control which fork is used, though only upstream `qmk_f
 Keymap-Drawer is only able to parse QMK files from a .json version, so you need to convert the keymap to json in order to use that:
 
 `qmk c2json -kb planck/rev6_drop -km thrly_plnck -o ./img/img-map.json`
-
-### Current Keymap
-
-![keymap-image](./img/my_keymap.svg)
-
-> This image is not currently automated and may be out of date with the current keymap.
