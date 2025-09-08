@@ -1,8 +1,11 @@
 # thrly's planck keymap
 
-[![Build QMK firmware](https://github.com/thrly/qmk_thrly/actions/workflows/build_binaries.yaml/badge.svg)](https://github.com/thrly/qmk_thrly/actions/workflows/build_binaries.yaml)[![Build keymap diagram](https://github.com/thrly/qmk_thrly/actions/workflows/keymap_drawer_qmk.yaml/badge.svg)](https://github.com/thrly/qmk_thrly/actions/workflows/keymap_drawer_qmk.yaml)
+[![Build QMK firmware](https://github.com/thrly/qmk_thrly/actions/workflows/build_binaries.yaml/badge.svg)](https://github.com/thrly/qmk_thrly/actions/workflows/build_binaries.yaml) [![Build keymap diagram](https://github.com/thrly/qmk_thrly/actions/workflows/keymap_drawer_qmk.yaml/badge.svg)](https://github.com/thrly/qmk_thrly/actions/workflows/keymap_drawer_qmk.yaml)
+![planck](./img/plnck-2.jpg)
 
-![keymap-image](./img/planck_thrly.svg)
+![keymap-image](./img/thrly_plnck.svg)
+
+![planck](./img/plnck-1.jpg)
 
 ## QMK userspace
 
