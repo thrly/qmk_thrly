@@ -1,0 +1,194 @@
+layout: {qmk_keyboard: planck/rev6_drop, layout_name: LAYOUT_planck_1x2uC}
+layers:
+  base:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - ⇪ LOCK
+  - ⇪ WORD
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: A, h: LGUI}
+  - {t: S, h: LALT}
+  - {t: D, h: LSFT}
+  - {t: F, h: LCTL}
+  - G
+  - VOL ↑
+  - VOL ↓
+  - H
+  - {t: J, h: RCTL}
+  - {t: K, h: RSFT}
+  - {t: L, h: LALT}
+  - {t: ;, h: RGUI}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - ◧
+  - ◨
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - LCTL
+  - LGUI
+  - LALT
+  - LSFT
+  - {t: ⎵, h: NAVI}
+  - {t: ⏎, h: NUM}
+  - {t: ⌫, h: SYMB}
+  - RSFT
+  - RALT
+  - RGUI
+  - RCTL
+  navigation:
+  - MOUSE ←
+  - MOUSE ↓
+  - MOUSE ↑
+  - MS RGHT
+  - MS BTN1
+  - ⇤
+  - ⇥
+  - MS BTN1
+  - MOUSE ←
+  - MOUSE ↓
+  - MOUSE ↑
+  - MS RGHT
+  - {t: ←, h: LGUI}
+  - {t: ↓, h: LALT}
+  - {t: ↑, h: LSFT}
+  - {t: →, h: LCTL}
+  - MS BTN2
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - MS BTN2
+  - ←
+  - ↓
+  - ↑
+  - RGHT
+  - HOME
+  - PGDN
+  - PGUP
+  - END
+  - WBAK
+  - MUTE
+  - MPLY
+  - WFWD
+  - HOME
+  - PGDN
+  - PGUP
+  - END
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  symbol:
+  - '!'
+  - '?'
+  - '{'
+  - '}'
+  - +
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - $
+  - '`'
+  - '%'
+  - '#'
+  - ^
+  - <
+  - '>'
+  - (
+  - )
+  - '-'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '='
+  - ''''
+  - '&'
+  - '"'
+  - ':'
+  - \
+  - /
+  - '['
+  - ']'
+  - '*'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - _
+  - '@'
+  - Sft+\
+  - '#'
+  - '|'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  number:
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - Gui+TAB
+  - CALC
+  - F6
+  - '7'
+  - F8
+  - F9
+  - F10
+  - {t: '1', h: LGUI}
+  - {t: '2', h: LALT}
+  - {t: '3', h: LSFT}
+  - {t: '4', h: LCTL}
+  - '5'
+  - F23
+  - F24
+  - '6'
+  - {t: '7', h: LCTL}
+  - {t: '8', h: LSFT}
+  - {t: '9', h: LALT}
+  - {t: '0', h: LGUI}
+  - '='
+  - .
+  - PCMM
+  - +
+  - '-'
+  - ◧
+  - ◨
+  - PAST
+  - PSLS
+  - PCMM
+  - .
+  - '='
+  - F11
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
