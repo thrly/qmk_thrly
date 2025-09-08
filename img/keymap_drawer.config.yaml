@@ -336,17 +336,49 @@ parse_config:
         QK_GESC:
             t: ⎋
             s: "` ~"
-        MO(_NAVIGATION):
+        LT(_NAVIGATION,KC_SPC):
             h: "NAVI"
-        MO(_SYMBOL):
-            h: "SYMB"
-        LT(_NUMBER,KC_SPC):
             t: ⎵
+        LT(_SYMBOL,KC_BSPC):
+            h: "SYMB"
+            t: ⌫
+
+        LT(_NUMBER,KC_ENT):
+            t: ⏎
             h: "NUM"
         ENT: ⏎
         BSPC:
             t: ⌫
             s: ⌦
+        VOLD: "VOL ↑"
+        VOLU: "VOL ↓"
+        CW_TOGG: "⇪ WORD"
+        CAPS: "⇪ LOCK"
+
+        MS_LEFT: MOUSE ←
+        MS_RIGHT: MOUSE →
+        MS_UP: MOUSE ↑
+        MS_DOWN: MOUSE ↓
+
+        LEFT: ←
+        RIGHT: →
+        UP: ↑
+        DOWN: ↓
+
+        MPRV: ⇤
+        MNXT: ⇥
+
+        NUBS: \
+        S(NUBS): "|"
+
+        PEQL: "="
+        PCMN: ","
+        PPLS: "+"
+        PMNS: "-"
+
+        F20: "◧"
+        F21: "◨"
+
     zmk_remove_keycode_prefix: []
     zmk_keycode_map:
         AMPERSAND: "&"

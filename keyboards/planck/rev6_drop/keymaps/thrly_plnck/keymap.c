@@ -7,7 +7,7 @@ enum planck_layers {
   _NAVIGATION,
   _SYMBOL,
   _NUMBER,
-  _ADJUST
+  /* _ADJUST */
 };
 
 /* enum {TD_CAPS}; */
@@ -142,21 +142,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
-    [_ADJUST] = LAYOUT_planck_1x2uC(
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS
-    )
+
+/*         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, */
+/*         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, */
+/*         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, */
+/*         KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS */
+/*     ) */
 };
 
-// Access ADJUST layer with Nav + Symb layers together
-layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _NAVIGATION, _SYMBOL, _ADJUST);
-}
+/* // Access ADJUST layer with Nav + Symb layers together */
+/* layer_state_t layer_state_set_user(layer_state_t state) { */
+/*   return update_tri_layer_state(state, _NAVIGATION, _SYMBOL, _ADJUST); */
+/* } */
 
 // KEY OVERRIDES
-//
 // Shift + Backspace = Delete
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 // This globally defines all key overrides to be used
