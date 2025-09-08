@@ -1,5 +1,5 @@
 # .github/workflows/keymap-drawer.yml
-name: Build keymap diagram
+name: Draw Keymap
 
 on:
     push:
@@ -98,23 +98,23 @@ jobs:
                   KM="thrly_plnck"
 
                   mkdir -p img
-                  qmk c2json -kb "$KB" -km "$KM" | keymap parse -c 12 -q - >"img/$KM.yaml"
+                  qmk c2json -kb "$KB" -km "$KM" >"img/$KM.json"
+                  keymap -c img/keymap_drawer.config.yaml parse --layer-names base navigation symbol number -q "img/$KM.json" -o "img/$KM.yaml"
                   echo "Generated img/$KM.yaml"
 
             - name: Draw SVG
               shell: bash
               run: |
-                  KM="thrly_plnck"
-                  keymap -c img/keymap_drawer.config.yaml draw "img/$KM.yaml" >"img/$KM.svg"
+                  keymap -c "img/keymap_drawer.config.yaml" draw "img/thrly_plnck.yaml" >"img/thrly_plnck.svg"
             - name: Commit diagram back to repo
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "22343302+thrly@users.noreply.github.com"
-                  git add "img/$KM.yaml" "img/$KM.svg" || true
+                  git add "img/thrly_plnck.yaml" "img/thrly_plnck.svg" || true
                   if git diff --cached --quiet; then
                     echo "No diagram changes to commit."
                   else
-                    git commit -m "(chore) auto-regenerate keymap diagram"
+                    git commit -m "(chore) auto-draw keymap diagram"
                     git push
                   fi
 
