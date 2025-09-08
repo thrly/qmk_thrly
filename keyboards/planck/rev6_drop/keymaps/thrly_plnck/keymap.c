@@ -90,12 +90,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_NAVIGATION] = LAYOUT_planck_1x2uC(
         MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, MS_BTN1,                                   KC_MPRV, KC_MNXT,  MS_BTN1, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT,
-        LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), MS_BTN2,  KC_VOLD, KC_VOLU,  MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
+        LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), MS_BTN2,  KC_TRNS, KC_TRNS,  MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
         KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_WBAK,                                  KC_MUTE, KC_MPLY,  KC_WFWD, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                 KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
-/* sYMBOL
+/* SYMBOL
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS
     ),
 
-/* nUMBER
+/* NUMBER
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -125,13 +125,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
     [_NUMBER] = LAYOUT_planck_1x2uC(
-        KC_F1,   KC_F2,   KC_F3,    KC_F4,    KC_F5,      LGUI(KC_TAB), KC_CALC,      KC_F6,    KC_7,    KC_F8,   KC_F9,  KC_F10,
-        KC_1,    KC_2,    KC_3,     KC_4,     KC_5,       KC_F23,   KC_F24,       KC_6,     KC_7,    KC_8,    KC_9,   KC_0,
-        KC_PEQL, KC_DOT,  KC_PCMM,  KC_PPLS,  KC_PMNS,    KC_F20,   KC_F22,       KC_PAST,  KC_PSLS, KC_PCMM, KC_DOT, KC_PEQL,
-        KC_F11,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS
+        KC_F1,   KC_F2,   KC_F3,    KC_F4,    KC_F5,            LGUI(KC_TAB), KC_CALC,      KC_F6,    KC_7,    KC_F8,   KC_F9,  KC_F10,
+        LGUI_T(KC_1),LALT_T(KC_2),LSFT_T(KC_3),LCTL_T(KC_4),KC_5,   KC_F23,KC_F24,   KC_6,LCTL_T(KC_7),LSFT_T(KC_8),LALT_T(KC_9),LGUI_T(KC_0),
+        KC_PEQL, KC_DOT,  KC_PCMM,  KC_PPLS,  KC_PMNS,              KC_F20,KC_F21,   KC_PAST,  KC_PSLS, KC_PCMM, KC_DOT, KC_PEQL,
+        KC_F11,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,                 KC_TRNS,      KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
-/* aDJUST (Nav + Symb)
+/* ADJUST (Nav + Symb)
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
