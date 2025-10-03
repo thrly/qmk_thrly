@@ -25,6 +25,7 @@ const uint16_t PROGMEM combo_quote[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_dquote[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_del[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_equal[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_hash[] = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_esc, KC_ESC),
@@ -35,6 +36,7 @@ combo_t key_combos[] = {
     COMBO(combo_quote, KC_QUOT),
     COMBO(combo_dquote, KC_AT),
     COMBO(combo_del, KC_DEL),
+    COMBO(combo_hash, KC_NUHS),
     COMBO(combo_equal, KC_EQUAL)
 };
 
