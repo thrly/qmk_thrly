@@ -52,6 +52,15 @@ combo_t key_combos[] = {
 #define HOME_L LALT_T(KC_L)
 #define HOME_SCLN RGUI_T(KC_SCLN)
 
+// set chordal hold "handedness"
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_planck_1x2uC(
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', '*', '*',     '*',   '*', '*', 'R', 'R', 'R'
+    );
+
 // Tap Dance definitions
 /* tap_dance_action_t tap_dance_actions[] = { */
 /*     // Tap once for Caps Word, twice for Caps Lock */
