@@ -60,7 +60,6 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
         'L', 'L', 'L', '*', '*',     '*',   '*', '*', 'R', 'R', 'R'
     );
-
 // Tap Dance definitions
 /* tap_dance_action_t tap_dance_actions[] = { */
 /*     // Tap once for Caps Word, twice for Caps Lock */
@@ -82,9 +81,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
     [_BASE] = LAYOUT_planck_1x2uC(
-        KC_Q,    KC_W,    KC_E,    KC_R,        KC_T,                  KC_CAPS,  CW_TOGG,     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+        KC_Q,    KC_W,    KC_E,    KC_R,        KC_T,                  CW_TOGG,  KC_MUTE,     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         HOME_A,  HOME_S,  HOME_D,  HOME_F,      KC_G,                  KC_VOLD,  KC_VOLU,     KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,
-        KC_Z,    KC_X,    KC_C,    KC_V,        KC_B,                  KC_F20,   KC_F21,      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+        KC_Z,    KC_X,    KC_C,    KC_V,        KC_B,                  KC_F23,   KC_F24,      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
         KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT,  LT(_NAVIGATION,KC_SPC),   LT(_NUMBER,KC_ENT),    LT(_SYMBOL,KC_BSPC),KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL
     ),
 
@@ -100,10 +99,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
     [_NAVIGATION] = LAYOUT_planck_1x2uC(
-        MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, MS_BTN1,                                   KC_MPRV, KC_MNXT,  MS_BTN1, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT,
-        LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), MS_BTN2,  KC_TRNS, KC_TRNS,  MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
-        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_WBAK,                                  KC_MUTE, KC_MPLY,  KC_WFWD, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                 KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+        MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, MS_BTN1,                                   KC_MPLY, KC_MUTE,       MS_BTN1, MS_LEFT, MS_DOWN, MS_UP, MS_RGHT,
+        LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), MS_BTN2,  KC_TRNS, KC_TRNS,       MS_BTN2, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
+        KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_WBAK,                          LCTL(KC_PGUP), LCTL(KC_PGDN),    KC_WFWD, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                 KC_TRNS,                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
 /* SYMBOL
@@ -118,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
     [_SYMBOL] = LAYOUT_planck_1x2uC(
-        KC_EXLM, KC_QUES, KC_LCBR, KC_RCBR, KC_PLUS,    KC_TRNS, KC_TRNS,    KC_DLR,  KC_GRV,  KC_PERC,    KC_HASH, KC_CIRC,
+        KC_EXLM, KC_QUES, KC_LCBR, KC_RCBR, KC_PLUS,    KC_CAPS, KC_TRNS,    KC_DLR,  KC_GRV,  KC_PERC,    KC_HASH, KC_CIRC,
         KC_LT,   KC_GT,   KC_LPRN, KC_RPRN, KC_MINS,    KC_TRNS, KC_TRNS,    KC_EQL,  KC_QUOT, KC_AMPR,    KC_DQUO, KC_COLN,
         KC_NUBS, KC_SLSH, KC_LBRC, KC_RBRC, KC_ASTR,    KC_TRNS, KC_TRNS,    KC_UNDS, KC_AT,   S(KC_NUBS), KC_NUHS, KC_PIPE,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS
