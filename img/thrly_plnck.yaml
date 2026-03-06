@@ -6,8 +6,8 @@ layers:
   - E
   - R
   - T
-  - ⇪ LOCK
   - ⇪ WORD
+  - MUTE
   - Y
   - U
   - I
@@ -30,8 +30,8 @@ layers:
   - C
   - V
   - B
-  - ◧
-  - ◨
+  - F23
+  - F24
   - N
   - M
   - ','
@@ -54,8 +54,8 @@ layers:
   - MOUSE ↑
   - MS RGHT
   - MS BTN1
-  - ⇤
-  - ⇥
+  - MPLY
+  - MUTE
   - MS BTN1
   - MOUSE ←
   - MOUSE ↓
@@ -78,8 +78,8 @@ layers:
   - PGUP
   - END
   - WBAK
-  - MUTE
-  - MPLY
+  - Ctl+PGUP
+  - Ctl+PGDN
   - WFWD
   - HOME
   - PGDN
@@ -102,7 +102,7 @@ layers:
   - '{'
   - '}'
   - +
-  - {t: ▽, type: trans}
+  - ⇪ LOCK
   - {t: ▽, type: trans}
   - $
   - '`'
